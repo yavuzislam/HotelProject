@@ -1,8 +1,10 @@
-﻿using HotelProject.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using HotelProject.BusinessLayer.Abstract;
 using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.EntityFramework;
+using HotelProject.WebApi.Mapping;
 using Microsoft.OpenApi.Models;
 
 namespace HotelProject.WebApi
@@ -36,8 +38,9 @@ namespace HotelProject.WebApi
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
             services.AddScoped<ITestimonialService, TestimonialManager>();
 
+            var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
+            services.AddSingleton(mapperConfig.CreateMapper());
 
-            // services.AddScoped
 
             services.AddCors(opt =>
             {

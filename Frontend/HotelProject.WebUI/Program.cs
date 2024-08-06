@@ -1,3 +1,6 @@
+using AutoMapper;
+using HotelProject.WebUI.Mapping;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //builder.Services.AddHttpContextAccessor();
@@ -5,6 +8,9 @@ builder.Services.AddHttpClient();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
+builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 var app = builder.Build();
 
