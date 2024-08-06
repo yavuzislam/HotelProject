@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.Dtos.RegisterDto;
 using HotelProject.WebUI.Dtos.ServiceDto;
 using HotelProject.WebUI.Dtos.StaffDto;
 using HotelProject.WebUI.Dtos.SubscribeDto;
@@ -20,6 +21,8 @@ public class AutoMapperConfig : Profile
         CreateMap<ResultStaffDto, Staff>().ReverseMap();
 
         CreateMap<CreateSubscribeDto, Subscribe>().ReverseMap();
+
+        CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
 
     }
 }

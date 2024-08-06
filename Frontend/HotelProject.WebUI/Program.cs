@@ -1,10 +1,13 @@
 using AutoMapper;
+using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.EntityLayer.Concrete;
 using HotelProject.WebUI.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
