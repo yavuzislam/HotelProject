@@ -5,15 +5,15 @@ using HotelProject.WebUI.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+builder.Services.AddHttpClient();
+var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
+builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
-builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 var app = builder.Build();
 
