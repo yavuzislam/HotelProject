@@ -1,0 +1,27 @@
+﻿@model CreateAboutDto
+
+@{
+    ViewData["Title"] = "CreateAbout";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<form method="post">
+    <label>Title1</label>
+    <input type="text" asp-for="Title1" class="form-control" />
+    <br />
+    <label>Title2</label>
+    <input type="text" asp-for="Title2" class="form-control" />
+    <br />
+    <label>Content</label>
+    <input type="text" asp-for="Content" class="form-control" />
+    <br />
+    <label>RoomCount</label>
+    <input type="text" asp-for="RoomCount" class="form-control" />
+    <br />
+    <label>StaffCount</label>
+    <input type="text" asp-for="StaffCount" class="form-control" />
+    <br />
+    <label>CustomerCount</label>
+    <input type="text" asp-for="CustomerCount" class="form-control" />
+    <br />
+    <button class="btn btn-primary">About Ekle</button>
+</form>

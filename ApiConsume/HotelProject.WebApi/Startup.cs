@@ -38,6 +38,9 @@ namespace HotelProject.WebApi
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
             services.AddScoped<ITestimonialService, TestimonialManager>();
 
+            services.AddScoped<IAboutDal, EfAboutDal>();
+            services.AddScoped<IAboutService, AboutManager>();
+
             var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
             services.AddSingleton(mapperConfig.CreateMapper());
 
