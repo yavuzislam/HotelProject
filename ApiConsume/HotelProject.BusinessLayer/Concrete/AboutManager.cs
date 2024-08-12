@@ -13,6 +13,11 @@ public class AboutManager : IAboutService
         _AboutDal = AboutDal;
     }
 
+    public About GetLastAbout()
+    {
+        return _AboutDal.GetLastAbout();
+    }
+
     public void TDelete(About t)
     {
         _AboutDal.Delete(t);

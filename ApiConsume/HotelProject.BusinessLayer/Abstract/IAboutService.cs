@@ -2,6 +2,7 @@
 
 namespace HotelProject.BusinessLayer.Abstract;
 
-public interface IAboutService:IGenericService<About>
+public interface IAboutService : IGenericService<About>
 {
+    About GetLastAbout();
 }

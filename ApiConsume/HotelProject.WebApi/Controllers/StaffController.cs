@@ -56,4 +56,12 @@ public class StaffController : ControllerBase
         _staffService.TDelete(value);
         return Ok("Staff deleted.");
     }
+
+    [HttpGet("GetLast4Staff")]
+    public IActionResult GetLast4Staff()
+    {
+        var values = _staffService.GetLast4Staff();
+        return Ok(values);
+    }
+
 }

@@ -4,4 +4,5 @@ namespace HotelProject.DataAccessLayer.Abstract;
 
 public interface IAboutDal: IGenericDal<About>
 {
+    About GetLastAbout();
 }

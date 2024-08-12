@@ -56,4 +56,11 @@ public class AboutController : ControllerBase
         _AboutService.TDelete(value);
         return Ok("About deleted.");
     }
+
+    [HttpGet("GetLastAbout")]
+    public IActionResult GetLastAbout()
+    {
+        var value = _AboutService.GetLastAbout();
+        return Ok(value);
+    }
 }

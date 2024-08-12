@@ -1,5 +1,6 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstract;
+using HotelProject.DtoLayer.Dtos.StaffDtos;
 using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.BusinessLayer.Concrete;
@@ -11,6 +12,11 @@ public class StaffManager : IStaffService
     public StaffManager(IStaffDal StaffDal)
     {
         _StaffDal = StaffDal;
+    }
+
+    public List<ResultLast4StaffDto> GetLast4Staff()
+    {
+        return _StaffDal.GetLast4Staff();
     }
 
     public void TDelete(Staff t)
