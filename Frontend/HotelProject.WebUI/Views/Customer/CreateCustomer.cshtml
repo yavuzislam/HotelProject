@@ -1,0 +1,12 @@
+﻿@model CreateCustomerDto
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<form method="post">
+    <label>CustomerName</label>
+    <input type="text" asp-for="CustomerName" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Customer Ekle</button>
+</form>

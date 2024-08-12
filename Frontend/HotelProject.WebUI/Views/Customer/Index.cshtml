@@ -1,0 +1,27 @@
+﻿@model List<ResultCustomerDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>CustomerName </th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CustomerID</th>
+            <td>@item.CustomerName</td>
+            <td><a href="/Customer/DeleteCustomer/@item.CustomerID" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a href="/Customer/UpdateCustomer/@item.CustomerID" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+            <td><a href="#" class="btn mb-1 btn-rounded btn-outline-dark">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Customer/CreateCustomer/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Customer Girişi</a>

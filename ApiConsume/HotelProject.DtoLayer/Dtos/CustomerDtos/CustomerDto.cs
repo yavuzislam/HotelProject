@@ -1,6 +1,6 @@
-﻿namespace HotelProject.EntityLayer.Concrete;
+﻿namespace HotelProject.DtoLayer.Dtos.CustomerDtos;
 
-public class Customer
+public class CustomerDto
 {
     public int CustomerID { get; set; }
     public string CustomerName { get; set; }
