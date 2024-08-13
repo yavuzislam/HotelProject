@@ -33,7 +33,7 @@ public class BookingController : ControllerBase
         _bookingService.TDelete(values);
         return Ok();
     }
-    [HttpPut("UpdateBooking")]
+    [HttpPut]
     public IActionResult UpdateBooking(Booking booking)
     {
         _bookingService.TUpdate(booking);

@@ -27,25 +27,6 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
-        public IActionResult CreateBooking()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateBooking(CreateBookingDto createBookingDto)
-        {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createBookingDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7180/api/Booking", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
-
         [HttpGet]
         public async Task<IActionResult> UpdateBooking(int id)
         {
@@ -78,6 +59,39 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.DeleteAsync($"https://localhost:7180/api/Booking/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> CancelReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7180/api/Booking/BookingCancel?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> ApprovedReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7180/api/Booking/BookingAproved?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> WaitReservation(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7180/api/Booking/BookingWait?id={id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
