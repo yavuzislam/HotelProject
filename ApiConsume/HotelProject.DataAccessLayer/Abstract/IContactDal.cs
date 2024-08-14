@@ -2,7 +2,7 @@
 
 namespace HotelProject.DataAccessLayer.Abstract;
 
-public interface IRoomDal : IGenericDal<Room>
+public interface IContactDal : IGenericDal<Contact>
 {
-    int RoomCount();
+    public int GetContactCount();
 }

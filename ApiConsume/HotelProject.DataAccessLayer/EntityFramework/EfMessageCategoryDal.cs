@@ -5,15 +5,9 @@ using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.DataAccessLayer.EntityFramework;
 
-public class EfRoomDal : GenericRepository<Room>, IRoomDal
+public class EfMessageCategoryDal : GenericRepository<MessageCategory>, IMessageCategoryDal
 {
-    public EfRoomDal(Context context) : base(context)
+    public EfMessageCategoryDal(Context context) : base(context)
     {
-    }
-
-    public int RoomCount()
-    {
-        var context = new Context();
-        return context.Rooms.Count();
     }
 }

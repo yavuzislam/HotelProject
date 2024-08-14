@@ -47,6 +47,18 @@ namespace HotelProject.WebApi
             services.AddScoped<ICustomerDal, EfCustomerDal>();
             services.AddScoped<ICustomerService, CustumerManager>();
 
+            services.AddScoped<IGuestDal, EfGuestDal>();
+            services.AddScoped<IGuestService, GuestManager>();
+
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
+            services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
+            services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
+            services.AddScoped<ISendMessageDal, EfSendMessageDal>();
+            services.AddScoped<ISendMessageService, SendMessageManager>();
+
             var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
             services.AddSingleton(mapperConfig.CreateMapper());
 

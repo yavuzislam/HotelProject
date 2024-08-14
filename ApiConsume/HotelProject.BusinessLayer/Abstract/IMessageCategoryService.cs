@@ -2,7 +2,6 @@
 
 namespace HotelProject.BusinessLayer.Abstract;
 
-public interface IRoomService : IGenericService<Room>
+public interface IMessageCategoryService : IGenericService<MessageCategory>
 {
-    int TRoomCount();
 }

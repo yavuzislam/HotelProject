@@ -5,15 +5,15 @@ using HotelProject.EntityLayer.Concrete;
 
 namespace HotelProject.DataAccessLayer.EntityFramework;
 
-public class EfRoomDal : GenericRepository<Room>, IRoomDal
+public class EfSendMessageDal : GenericRepository<SendMessage>, ISendMessageDal
 {
-    public EfRoomDal(Context context) : base(context)
+    public EfSendMessageDal(Context context) : base(context)
     {
     }
 
-    public int RoomCount()
+    public int GetSendMessageCount()
     {
         var context = new Context();
-        return context.Rooms.Count();
+        return context.SendMessages.Count();
     }
 }

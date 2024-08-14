@@ -56,4 +56,12 @@ public class RoomController : ControllerBase
         _roomService.TDelete(value);
         return Ok("Room deleted.");
     }
+
+    [HttpGet("RoomCount")]
+    public IActionResult RoomCount()
+    {
+        var count = _roomService.TRoomCount();
+        return Ok(count);
+    }
 }
+//TRoomCount
