@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
+using FluentValidation.AspNetCore;
 using HotelProject.BusinessLayer.Abstract;
 using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.EntityFramework;
 using HotelProject.WebApi.Mapping;
+using HotelProject.WebApi.ValidationRules.GuestValidationRules;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
 
 namespace HotelProject.WebApi
@@ -73,6 +76,10 @@ namespace HotelProject.WebApi
 
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            //services.AddControllers().AddNewtonsoftJson(options =>
+            //options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore).
+            //AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CreateGuestValidate>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HotelProject.WebApi", Version = "v1" });

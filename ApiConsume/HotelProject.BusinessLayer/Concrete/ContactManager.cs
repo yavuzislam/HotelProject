@@ -42,4 +42,9 @@ public class ContactManager : IContactService
     {
         _contactDal.Update(t);
     }
+
+    public Contact TGetContactByCategory(int id)
+    {
+        return _contactDal.GetContactByCategory(id);
+    }
 }

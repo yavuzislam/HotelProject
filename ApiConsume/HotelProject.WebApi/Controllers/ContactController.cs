@@ -69,4 +69,11 @@ public class ContactController : ControllerBase
         _contactService.TDelete(value);
         return Ok("Contact deleted.");
     }
+
+    [HttpGet("GetContactByCategory")]
+    public IActionResult GetContactByCategory(int id)
+    {
+        var value = _contactService.TGetContactByCategory(id);
+        return Ok(value);
+    }
 }

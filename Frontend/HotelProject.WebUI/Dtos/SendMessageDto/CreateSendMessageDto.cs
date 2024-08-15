@@ -1,6 +1,6 @@
 ﻿namespace HotelProject.WebUI.Dtos.SendMessageDto;
 
-public class CreateSendboxDto
+public class CreateSendMessageDto
 {
     public string ReceiverName { get; set; }
     public string ReceiverMail { get; set; }

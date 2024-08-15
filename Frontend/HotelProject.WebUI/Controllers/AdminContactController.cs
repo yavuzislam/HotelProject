@@ -2,6 +2,7 @@
 using HotelProject.WebUI.Dtos.SendMessageDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
@@ -52,6 +53,67 @@ namespace HotelProject.WebUI.Controllers
                 return View(values);
             }
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddSendMessage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddSendMessage(CreateSendMessageDto createSendMessageDto)
+        {
+            createSendMessageDto.SenderMail = "admin@gmail.com";
+            createSendMessageDto.SenderName = "Admin";
+            createSendMessageDto.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createSendMessageDto);
+            var stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7180/api/SendMessage", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Sendbox");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> MessageDetailsByInbox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7180/api/Contact/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<InboxContactDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> MessageDetailsBySendbox(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7180/api/SendMessage/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<ResultSendboxDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+
+
+        public PartialViewResult SideBarAdminContactPartial()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult SideBarAdminContactCategoryPartial()
+        {
+            return PartialView();
         }
     }
 }
