@@ -2,7 +2,7 @@
 
 namespace HotelProject.WebUI.Controllers;
 
-public class RoomController : Controller
+public class AdminDashboardController : Controller
 {
     public IActionResult Index()
     {

@@ -10,4 +10,10 @@ public class EfSubscribeDal : GenericRepository<Subscribe>, ISubscribeDal
     public EfSubscribeDal(Context context) : base(context)
     {
     }
+
+    public int GetSubscribeCount()
+    {
+        var context = new Context();
+        return context.Subscribes.Count();
+    }
 }

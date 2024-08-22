@@ -28,6 +28,13 @@ public class DefaultController : ControllerBase
         return Ok("Test2");
     }
 
+    [Authorize]
+    [HttpPost]
+    public IActionResult Post()
+    {
+        return Ok("Post");
+    }
+
     [Authorize(Roles = "Admin,Visitor")]
     [HttpGet("[action]")]
     public IActionResult Test3()

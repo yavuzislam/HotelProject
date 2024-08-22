@@ -2,6 +2,7 @@
 
 namespace HotelProject.BusinessLayer.Abstract;
 
-public interface ISubscribeService: IGenericService<Subscribe>
+public interface ISubscribeService : IGenericService<Subscribe>
 {
+    int TGetSubscribeCount();
 }

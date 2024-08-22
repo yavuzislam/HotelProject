@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -31,10 +31,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ApiConsume\HotelProject.DataAccessLayer\HotelProject.DataAccessLayer.csproj" />
     <ProjectReference Include="..\..\ApiConsume\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ValidationRules\RoomValidationRules\" />
   </ItemGroup>
 
 </Project>

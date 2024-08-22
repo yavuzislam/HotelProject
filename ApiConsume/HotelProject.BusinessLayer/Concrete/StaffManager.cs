@@ -7,40 +7,45 @@ namespace HotelProject.BusinessLayer.Concrete;
 
 public class StaffManager : IStaffService
 {
-    private readonly IStaffDal _StaffDal;
+    private readonly IStaffDal _staffDal;
 
-    public StaffManager(IStaffDal StaffDal)
+    public StaffManager(IStaffDal staffDal)
     {
-        _StaffDal = StaffDal;
+        _staffDal = staffDal;
     }
 
-    public List<ResultLast4StaffDto> GetLast4Staff()
+    public List<ResultLast4StaffDto> TGetLast4Staff()
     {
-        return _StaffDal.GetLast4Staff();
+        return _staffDal.GetLast4Staff();
+    }
+
+    public int TGetStaffCount()
+    {
+        return _staffDal.GetStaffCount();
     }
 
     public void TDelete(Staff t)
     {
-        _StaffDal.Delete(t);
+        _staffDal.Delete(t);
     }
 
     public Staff TGetByID(int id)
     {
-        return _StaffDal.GetByID(id);
+        return _staffDal.GetByID(id);
     }
 
     public List<Staff> TGetList()
     {
-        return _StaffDal.GetList();
+        return _staffDal.GetList();
     }
 
     public void TInsert(Staff t)
     {
-        _StaffDal.Insert(t);
+        _staffDal.Insert(t);
     }
 
     public void TUpdate(Staff t)
     {
-        _StaffDal.Update(t);
+        _staffDal.Update(t);
     }
 }

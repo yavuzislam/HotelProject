@@ -5,6 +5,7 @@ using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.EntityFramework;
+using HotelProject.EntityLayer.Concrete;
 using HotelProject.WebApi.Mapping;
 using HotelProject.WebApi.ValidationRules.GuestValidationRules;
 using Microsoft.AspNetCore.Identity;
@@ -25,6 +26,7 @@ namespace HotelProject.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 
             services.AddScoped<IRoomDal, EfRoomDal>();
             services.AddScoped<IRoomService, RoomManager>();
@@ -61,6 +63,12 @@ namespace HotelProject.WebApi
 
             services.AddScoped<ISendMessageDal, EfSendMessageDal>();
             services.AddScoped<ISendMessageService, SendMessageManager>();
+
+            services.AddScoped<IAppUserDal, EfAppUserDal>();
+            services.AddScoped<IAppUserService, AppUserManager>();
+
+            services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
+            services.AddScoped<IWorkLocationService, WorkLocationManager>();
 
             var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfig()));
             services.AddSingleton(mapperConfig.CreateMapper());

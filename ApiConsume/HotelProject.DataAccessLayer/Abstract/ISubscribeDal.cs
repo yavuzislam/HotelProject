@@ -4,4 +4,5 @@ namespace HotelProject.DataAccessLayer.Abstract;
 
 public interface ISubscribeDal : IGenericDal<Subscribe>
 {
+    int GetSubscribeCount();
 }

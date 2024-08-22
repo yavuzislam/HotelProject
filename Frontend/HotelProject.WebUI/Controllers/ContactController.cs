@@ -1,5 +1,6 @@
 ﻿using HotelProject.DtoLayer.Dtos.ContactDtos;
 using HotelProject.WebUI.Dtos.MessageCategoryDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -7,6 +8,7 @@ using System.Text;
 
 namespace HotelProject.WebUI.Controllers;
 
+[AllowAnonymous]
 public class ContactController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
@@ -50,4 +52,6 @@ public class ContactController : Controller
         await client.PostAsync("https://localhost:7180/api/Contact", stringContent);
         return RedirectToAction("Index", "Default");
     }
+
+
 }

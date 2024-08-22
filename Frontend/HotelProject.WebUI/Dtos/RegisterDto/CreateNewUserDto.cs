@@ -16,10 +16,22 @@ public class CreateNewUserDto
     [Required(ErrorMessage = "Mail Alanı Gereklidir")]
     public string Mail { get; set; }
 
+    [Required(ErrorMessage = "Ülke Alanı Gereklidir")]
+    public string Country { get; set; }
+
+    [Required(ErrorMessage = "Cinsiyet Alanı Gereklidir")]
+    public string Gender { get; set; }
+
+
+
     [Required(ErrorMessage = "Şifre Alanı Gereklidir")]
     public string Password { get; set; }
 
     [Required(ErrorMessage = "Şifre Tekrar Alanı Gereklidir")]
     [Compare("Password", ErrorMessage = "Şifreler Uyuşmuyor")]
     public string ConfirmPassword { get; set; }
+
+    public string? City { get; set; }
+
+    public string? ImageUrl { get; set; }
 }

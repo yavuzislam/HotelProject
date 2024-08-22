@@ -24,6 +24,13 @@ public class SubscribeController : ControllerBase
         return Ok(values);
     }
 
+    [HttpGet("GetSubscribeCount")]
+    public IActionResult GetSubscribeCount()
+    {
+        var value = _subscribeService.TGetSubscribeCount();
+        return Ok(value);
+    }
+
     // GET api/<SubscribeController>/5
     [HttpGet("{id}")]
     public IActionResult GetSubscribe(int id)

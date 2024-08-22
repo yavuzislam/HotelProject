@@ -1,10 +1,12 @@
 ﻿using HotelProject.WebUI.Dtos.SubscribeDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Text.Json;
 
 namespace HotelProject.WebUI.Controllers;
 
+[AllowAnonymous]
 public class DefaultController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;

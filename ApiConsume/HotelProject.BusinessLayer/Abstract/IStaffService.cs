@@ -5,5 +5,6 @@ namespace HotelProject.BusinessLayer.Abstract;
 
 public interface IStaffService : IGenericService<Staff>
 {
-    List<ResultLast4StaffDto> GetLast4Staff();
+    List<ResultLast4StaffDto> TGetLast4Staff();
+    int TGetStaffCount();
 }

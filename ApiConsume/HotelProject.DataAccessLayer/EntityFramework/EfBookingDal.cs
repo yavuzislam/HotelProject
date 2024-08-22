@@ -74,6 +74,8 @@ public class EfBookingDal : GenericRepository<Booking>, IBookingDal
             RoomCount = x.RoomCount,
             SpecialRequest = x.SpecialRequest,
             Status = x.Status,
+            City = x.City,
+            Country = x.Country
         }).ToList();
     }
 }

@@ -26,4 +26,10 @@ public class EfStaffDal : GenericRepository<Staff>, IStaffDal
         }).ToList();
         return values;
     }
+
+    public int GetStaffCount()
+    {
+        var context = new Context();
+        return context.Staffs.Count();
+    }
 }

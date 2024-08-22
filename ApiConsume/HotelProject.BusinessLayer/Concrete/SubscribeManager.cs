@@ -6,35 +6,40 @@ namespace HotelProject.BusinessLayer.Concrete;
 
 public class SubscribeManager : ISubscribeService
 {
-    private readonly ISubscribeDal _SubscribeDal;
+    private readonly ISubscribeDal _subscribeDal;
 
-    public SubscribeManager(ISubscribeDal SubscribeDal)
+    public SubscribeManager(ISubscribeDal subscribeDal)
     {
-        _SubscribeDal = SubscribeDal;
+        _subscribeDal = subscribeDal;
+    }
+
+    public int TGetSubscribeCount()
+    {
+        return _subscribeDal.GetSubscribeCount();
     }
 
     public void TDelete(Subscribe t)
     {
-        _SubscribeDal.Delete(t);
+        _subscribeDal.Delete(t);
     }
 
     public Subscribe TGetByID(int id)
     {
-        return _SubscribeDal.GetByID(id);
+        return _subscribeDal.GetByID(id);
     }
 
     public List<Subscribe> TGetList()
     {
-        return _SubscribeDal.GetList();
+        return _subscribeDal.GetList();
     }
 
     public void TInsert(Subscribe t)
     {
-        _SubscribeDal.Insert(t);
+        _subscribeDal.Insert(t);
     }
 
     public void TUpdate(Subscribe t)
     {
-        _SubscribeDal.Update(t);
+        _subscribeDal.Update(t);
     }
 }

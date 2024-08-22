@@ -60,7 +60,7 @@ public class StaffController : ControllerBase
     [HttpGet("GetLast4Staff")]
     public IActionResult GetLast4Staff()
     {
-        var values = _staffService.GetLast4Staff();
+        var values = _staffService.TGetLast4Staff();
         return Ok(values);
     }
 
